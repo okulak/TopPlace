@@ -1,5 +1,5 @@
 //
-//  TopPlaceSecondViewController.h
+//  TopPlaceViewController.h
 //  TopPlace
 //
 //  Created by Oleksandr Kulakov on 5/23/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopPlaceSecondViewController : UIViewController
+@interface TopPlaceViewController : UITableViewController
 
 @end

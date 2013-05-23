@@ -21,10 +21,10 @@
 		8EB88FD1174E0C7800E1CE2B /* TopPlaceFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FD0174E0C7800E1CE2B /* TopPlaceFirstViewController.m */; };
 		8EB88FD3174E0C7800E1CE2B /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB88FD2174E0C7800E1CE2B /* first.png */; };
 		8EB88FD5174E0C7800E1CE2B /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB88FD4174E0C7800E1CE2B /* first@2x.png */; };
-		8EB88FD8174E0C7800E1CE2B /* TopPlaceSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FD7174E0C7800E1CE2B /* TopPlaceSecondViewController.m */; };
 		8EB88FDA174E0C7800E1CE2B /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB88FD9174E0C7800E1CE2B /* second.png */; };
 		8EB88FDC174E0C7800E1CE2B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB88FDB174E0C7800E1CE2B /* second@2x.png */; };
 		8EB88FE5174E0CC200E1CE2B /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FE4174E0CC200E1CE2B /* FlickrFetcher.m */; };
+		8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,13 +47,13 @@
 		8EB88FD0174E0C7800E1CE2B /* TopPlaceFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPlaceFirstViewController.m; sourceTree = "<group>"; };
 		8EB88FD2174E0C7800E1CE2B /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		8EB88FD4174E0C7800E1CE2B /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		8EB88FD6174E0C7800E1CE2B /* TopPlaceSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopPlaceSecondViewController.h; sourceTree = "<group>"; };
-		8EB88FD7174E0C7800E1CE2B /* TopPlaceSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPlaceSecondViewController.m; sourceTree = "<group>"; };
 		8EB88FD9174E0C7800E1CE2B /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		8EB88FDB174E0C7800E1CE2B /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		8EB88FE2174E0CC200E1CE2B /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		8EB88FE3174E0CC200E1CE2B /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		8EB88FE4174E0CC200E1CE2B /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlaceViewController.h; sourceTree = "<group>"; };
+		8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlaceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +106,13 @@
 				8EB88FC0174E0C7800E1CE2B /* TopPlaceAppDelegate.h */,
 				8EB88FC1174E0C7800E1CE2B /* TopPlaceAppDelegate.m */,
 				8EB88FC9174E0C7800E1CE2B /* MainStoryboard_iPhone.storyboard */,
+				8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */,
+				8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */,
 				8EB88FCC174E0C7800E1CE2B /* MainStoryboard_iPad.storyboard */,
 				8EB88FCF174E0C7800E1CE2B /* TopPlaceFirstViewController.h */,
 				8EB88FD0174E0C7800E1CE2B /* TopPlaceFirstViewController.m */,
 				8EB88FD2174E0C7800E1CE2B /* first.png */,
 				8EB88FD4174E0C7800E1CE2B /* first@2x.png */,
-				8EB88FD6174E0C7800E1CE2B /* TopPlaceSecondViewController.h */,
-				8EB88FD7174E0C7800E1CE2B /* TopPlaceSecondViewController.m */,
 				8EB88FD9174E0C7800E1CE2B /* second.png */,
 				8EB88FDB174E0C7800E1CE2B /* second@2x.png */,
 				8EB88FB8174E0C7800E1CE2B /* Supporting Files */,
@@ -209,8 +209,8 @@
 				8EB88FBE174E0C7800E1CE2B /* main.m in Sources */,
 				8EB88FC2174E0C7800E1CE2B /* TopPlaceAppDelegate.m in Sources */,
 				8EB88FD1174E0C7800E1CE2B /* TopPlaceFirstViewController.m in Sources */,
-				8EB88FD8174E0C7800E1CE2B /* TopPlaceSecondViewController.m in Sources */,
 				8EB88FE5174E0CC200E1CE2B /* FlickrFetcher.m in Sources */,
+				8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
