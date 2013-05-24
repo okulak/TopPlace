@@ -8,6 +8,7 @@
 
 #import "PhotoListViewController.h"
 #import "FlickrFetcher.h"
+#import "PhotoViewController.h"
 
 @interface PhotoListViewController ()
 
@@ -98,6 +99,15 @@
     
     return cell;
 }
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PhotoViewController *fvc = (PhotoViewController*)segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    fvc.photoInformaton = [self.photos objectAtIndex:indexPath.row];
+}
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E55D5D1174F5C7C00E63C8A /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */; };
 		8EB88FB2174E0C7800E1CE2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB88FB1174E0C7800E1CE2B /* UIKit.framework */; };
 		8EB88FB4174E0C7800E1CE2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB88FB3174E0C7800E1CE2B /* Foundation.framework */; };
 		8EB88FB6174E0C7800E1CE2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB88FB5174E0C7800E1CE2B /* CoreGraphics.framework */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E55D5CF174F5C7C00E63C8A /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		8EB88FAE174E0C7800E1CE2B /* TopPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB88FB1174E0C7800E1CE2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8EB88FB3174E0C7800E1CE2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 				8EB88FC0174E0C7800E1CE2B /* TopPlaceAppDelegate.h */,
 				8EB88FC1174E0C7800E1CE2B /* TopPlaceAppDelegate.m */,
 				8EB88FC9174E0C7800E1CE2B /* MainStoryboard_iPhone.storyboard */,
+				8E55D5CF174F5C7C00E63C8A /* PhotoViewController.h */,
+				8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */,
 				8EB88FE9174E492B00E1CE2B /* PhotoListViewController.h */,
 				8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */,
 				8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */,
@@ -217,6 +222,7 @@
 				8EB88FE5174E0CC200E1CE2B /* FlickrFetcher.m in Sources */,
 				8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */,
 				8EB88FEB174E492C00E1CE2B /* PhotoListViewController.m in Sources */,
+				8E55D5D1174F5C7C00E63C8A /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +321,7 @@
 				GCC_PREFIX_HEADER = "TopPlace/TopPlace-Prefix.pch";
 				INFOPLIST_FILE = "TopPlace/TopPlace-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -326,6 +333,7 @@
 				GCC_PREFIX_HEADER = "TopPlace/TopPlace-Prefix.pch";
 				INFOPLIST_FILE = "TopPlace/TopPlace-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -349,6 +357,7 @@
 				8EB88FE1174E0C7800E1CE2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
