@@ -25,6 +25,7 @@
 		8EB88FDC174E0C7800E1CE2B /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB88FDB174E0C7800E1CE2B /* second@2x.png */; };
 		8EB88FE5174E0CC200E1CE2B /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FE4174E0CC200E1CE2B /* FlickrFetcher.m */; };
 		8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */; };
+		8EB88FEB174E492C00E1CE2B /* PhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		8EB88FE4174E0CC200E1CE2B /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPlaceViewController.h; sourceTree = "<group>"; };
 		8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlaceViewController.m; sourceTree = "<group>"; };
+		8EB88FE9174E492B00E1CE2B /* PhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoListViewController.h; sourceTree = "<group>"; };
+		8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				8EB88FC0174E0C7800E1CE2B /* TopPlaceAppDelegate.h */,
 				8EB88FC1174E0C7800E1CE2B /* TopPlaceAppDelegate.m */,
 				8EB88FC9174E0C7800E1CE2B /* MainStoryboard_iPhone.storyboard */,
+				8EB88FE9174E492B00E1CE2B /* PhotoListViewController.h */,
+				8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */,
 				8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */,
 				8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */,
 				8EB88FCC174E0C7800E1CE2B /* MainStoryboard_iPad.storyboard */,
@@ -211,6 +216,7 @@
 				8EB88FD1174E0C7800E1CE2B /* TopPlaceFirstViewController.m in Sources */,
 				8EB88FE5174E0CC200E1CE2B /* FlickrFetcher.m in Sources */,
 				8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */,
+				8EB88FEB174E492C00E1CE2B /* PhotoListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

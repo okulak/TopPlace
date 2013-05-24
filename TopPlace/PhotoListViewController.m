@@ -1,23 +1,23 @@
 //
-//  TopPlaceViewController.m
+//  PhotoListViewController.m
 //  TopPlace
 //
 //  Created by Oleksandr Kulakov on 5/23/13.
 //  Copyright (c) 2013 Oleksandr Kulakov. All rights reserved.
 //
 
-#import "TopPlaceViewController.h"
-#import "FlickrFetcher.h"
 #import "PhotoListViewController.h"
+#import "FlickrFetcher.h"
 
-@interface TopPlaceViewController ()
+@interface PhotoListViewController ()
 
 @end
 
-@implementation TopPlaceViewController
-@synthesize photoID = _photoID;
-@synthesize placeList = _placeList;
-
+@implementation PhotoListViewController
+@synthesize placeID = _placeID;
+@synthesize photos = _photos;
+@synthesize keys = _keys;
+@synthesize place = _place;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,19 +31,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.photoID = [NSMutableDictionary dictionary];
+    
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue setName:@"Data Processing Queue"];
-    __weak TopPlaceViewController *weakself = self;
+    __weak PhotoListViewController *weakself = self;
     [queue addOperationWithBlock:^{
-        NSArray *placeList = [FlickrFetcher topPlaces];
+        weakself.keys = [NSArray arrayWithObject:@"place_id"];
+        weakself.place = [[NSDictionary alloc] initWithObjects:weakself.placeID forKeys:weakself.keys];
+        NSArray *photos = [FlickrFetcher photosInPlace: weakself.place maxResults:50];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            weakself.placeList = placeList;
+            weakself.photos = photos;
             [weakself.tableView reloadData];
         }];
     }];
-
-
     
 }
 
@@ -60,37 +60,44 @@
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.placeList count];
+    return [self.photos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Top place cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSArray *placeList = [self.placeList objectAtIndex:indexPath.row];
-    NSString *place = [NSString stringWithFormat:@"%@",[placeList valueForKey:@"woe_name"]];
-    NSString *location = [NSString stringWithFormat:@"%@",[placeList valueForKey:@"_content"]];
-    NSArray *placeID = [NSArray arrayWithObject:[NSString stringWithFormat:@"%@",[placeList valueForKey:@"place_id"]]];
-    NSString *key = [NSString stringWithFormat:@"%i", indexPath.row];
-    [self.photoID setObject:placeID forKey:key];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",place];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",location];
+    
+    static NSString *CellIdentifier = @"Photo list cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath]; 
+    
+    NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
+    
+    NSString *title = [NSString stringWithFormat:@"%@",[photo objectForKey:@"title"]];
+    NSDictionary *description = [photo objectForKey:@"description"];
+    NSString *content = [NSString stringWithFormat:@"%@",[description objectForKey:@"_content"]];
+    
+    if (!content || [content isEqualToString:@""])
+    {       
+        cell.detailTextLabel.text = @"Unknow";
+    }
+    else
+    {        
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",content];
+    }
+    if (!title || [title isEqualToString:@""])
+    {
+        cell.textLabel.text = @"Unknow";        
+    }
+    else
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",title];       
+    }
+
+    
     return cell;
 }
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    PhotoListViewController *flvc = (PhotoListViewController*)segue.destinationViewController;
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSString *key = [NSString stringWithFormat:@"%i", indexPath.row];
-    flvc.placeID = @[[self.photoID objectForKey:key]];
-}
-                    
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -135,7 +142,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSArray *photos = [FlickrFetcher photosInPlace:self.photoID maxResults:50];
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 @end
