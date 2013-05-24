@@ -27,6 +27,7 @@
 		8EB88FE5174E0CC200E1CE2B /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FE4174E0CC200E1CE2B /* FlickrFetcher.m */; };
 		8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */; };
 		8EB88FEB174E492C00E1CE2B /* PhotoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */; };
+		8EF4C77C174FAF5C00CB9FF7 /* RecentSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF4C77B174FAF5C00CB9FF7 /* RecentSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPlaceViewController.m; sourceTree = "<group>"; };
 		8EB88FE9174E492B00E1CE2B /* PhotoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoListViewController.h; sourceTree = "<group>"; };
 		8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoListViewController.m; sourceTree = "<group>"; };
+		8EF4C77A174FAF5C00CB9FF7 /* RecentSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentSettings.h; sourceTree = "<group>"; };
+		8EF4C77B174FAF5C00CB9FF7 /* RecentSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 				8EB88FC9174E0C7800E1CE2B /* MainStoryboard_iPhone.storyboard */,
 				8E55D5CF174F5C7C00E63C8A /* PhotoViewController.h */,
 				8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */,
+				8EF4C77A174FAF5C00CB9FF7 /* RecentSettings.h */,
+				8EF4C77B174FAF5C00CB9FF7 /* RecentSettings.m */,
 				8EB88FE9174E492B00E1CE2B /* PhotoListViewController.h */,
 				8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */,
 				8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */,
@@ -223,6 +228,7 @@
 				8EB88FE8174E16B500E1CE2B /* TopPlaceViewController.m in Sources */,
 				8EB88FEB174E492C00E1CE2B /* PhotoListViewController.m in Sources */,
 				8E55D5D1174F5C7C00E63C8A /* PhotoViewController.m in Sources */,
+				8EF4C77C174FAF5C00CB9FF7 /* RecentSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

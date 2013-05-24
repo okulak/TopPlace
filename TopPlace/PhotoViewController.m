@@ -8,6 +8,7 @@
 
 #import "PhotoViewController.h"
 #import "FlickrFetcher.h"
+#import "RecentSettings.h"
 
 @interface PhotoViewController () <UIScrollViewAccessibilityDelegate>
 

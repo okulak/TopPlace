@@ -7,6 +7,7 @@
 
 #import "FlickrFetcher.h"
 #import "FlickrAPIKey.h"
+#import "RecentSettings.h"
 
 #define FLICKR_PLACE_ID @"place_id"
 
@@ -16,12 +17,12 @@
 {
     query = [NSString stringWithFormat:@"%@&format=json&nojsoncallback=1&api_key=%@", query, FlickrAPIKey];
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-     NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
+    // NSLog(@"[%@ %@] sent %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), query);
     NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:query] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
-     NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
+    // NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
     return results;
 }
 
@@ -70,8 +71,10 @@
 		// case FlickrPhotoFormatMedium640: formatString = @"z"; break;
 		case FlickrPhotoFormatOriginal:  formatString = @"o"; break;
 	}
+    NSString *link = [NSString stringWithFormat:@"http://farm%@.static.flickr.com/%@/%@_%@_%@.%@", farm, server, photo_id, secret, formatString, fileType];
     
-	return [NSString stringWithFormat:@"http://farm%@.static.flickr.com/%@/%@_%@_%@.%@", farm, server, photo_id, secret, formatString, fileType];
+    [[RecentSettings sharedSettings] addPhotoToRecentsWithURL:link andPhotoID:photo_id];
+	return link;
 }
 
 + (NSURL *)urlForPhoto:(NSDictionary *)photo format:(FlickrPhotoFormat)format

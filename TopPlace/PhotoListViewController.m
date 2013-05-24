@@ -44,8 +44,7 @@
             weakself.photos = photos;
             [weakself.tableView reloadData];
         }];
-    }];
-    
+    }];    
 }
 
 - (void)didReceiveMemoryWarning
