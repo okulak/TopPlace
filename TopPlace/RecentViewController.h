@@ -10,4 +10,6 @@
 
 @interface RecentViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *recents;
+
 @end

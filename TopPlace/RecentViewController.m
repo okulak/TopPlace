@@ -13,6 +13,7 @@
 @end
 
 @implementation RecentViewController
+@synthesize recents = _resents;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,18 +27,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    NSArray *recents = [settings objectForKey:@"photoInfo"];    
+    NSString *COUNT = @"count";
+    NSSortDescriptor *countDescriptor = [[NSSortDescriptor alloc] initWithKey:COUNT ascending:NO];
+    NSArray *descriptors = [NSArray arrayWithObjects:countDescriptor, nil];
+    self.recents = [recents sortedArrayUsingDescriptors:descriptors];
+    [self.tableView reloadData];
+   }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    NSArray *viewedPhotos=[settings objectForKey:@"photoInfo"];
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,25 +50,45 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+{       
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    int numberOfRecent = [self.recents count];
+    if (numberOfRecent > 50)
+    {
+        numberOfRecent = 50;
+    }
+    return numberOfRecent;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
+    static NSString *CellIdentifier = @"Photo list cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];    
+    NSDictionary *photoDictionary = [self.recents objectAtIndex:indexPath.row];    
+    NSString *title = [NSString stringWithFormat:@"%@",[photoDictionary objectForKey:@"title"]];
+    NSDictionary *description = [photoDictionary objectForKey:@"description"];
+    NSString *content = [NSString stringWithFormat:@"%@",[description objectForKey:@"_content"]];    
+    if (!content || [content isEqualToString:@""])
+    {
+        cell.detailTextLabel.text = @"Unknow";
+    }
+    else
+    {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",content];
+    }
+    if (!title || [title isEqualToString:@""])
+    {
+        cell.textLabel.text = @"Unknow";
+    }
+    else
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",title];
+    }
+
     
     return cell;
 }
