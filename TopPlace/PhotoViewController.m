@@ -23,18 +23,22 @@
 @synthesize imageView;
 @synthesize photoInformaton = _photoInformaton;
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
    
-    NSURL *urlForPhoto = [FlickrFetcher urlForPhoto:self.photoInformaton format: 2];
-    [self loadImage:urlForPhoto];//TODO::
+    self.photoURL = [FlickrFetcher urlForPhoto:self.photoInformaton format: 2];
+    [self loadImage:self.photoURL];//TODO::
     self.scrollView.delegate = self;
 	self.scrollView.contentSize = self.imageView.image.size;
     self.imageView.center = self.view.center;
-    
+    self.photoInformaton = [[NSDictionary alloc]init];
     [self.view setBackgroundColor:[UIColor blackColor]];
+    
 }
+
+
 
 -(void)loadImage:(NSURL*)imageUrl
 {

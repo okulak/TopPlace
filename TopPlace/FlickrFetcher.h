@@ -26,5 +26,6 @@ typedef enum {
 + (NSArray *)topPlaces;
 + (NSArray *)photosInPlace:(NSDictionary *)place maxResults:(int)maxResults;
 + (NSURL *)urlForPhoto:(NSDictionary *)photo format:(FlickrPhotoFormat)format;
++ (NSString *)urlStringForPhoto:(NSDictionary *)photo format:(FlickrPhotoFormat)format;
 
 @end

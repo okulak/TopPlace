@@ -13,6 +13,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //self.photoDataSource = [alloc];
+    
+    
+// PhotoDataSource* dataSource =   ((TopPlaceAppDelegate*)[UIApplication sharedApplication].delegate).photoesDataSource;
+// dataSource.photoes;
+    
     return YES;
 }
 							

@@ -52,7 +52,7 @@
 {
 	id farm = [photo objectForKey:@"farm"];
 	id server = [photo objectForKey:@"server"];
-	id photo_id = [photo objectForKey:@"id"];
+	NSString *photo_id = [photo objectForKey:@"id"];
 	id secret = [photo objectForKey:@"secret"];
 	if (format == FlickrPhotoFormatOriginal) secret = [photo objectForKey:@"originalsecret"];
     
@@ -73,7 +73,10 @@
 	}
     NSString *link = [NSString stringWithFormat:@"http://farm%@.static.flickr.com/%@/%@_%@_%@.%@", farm, server, photo_id, secret, formatString, fileType];
     
-    [[RecentSettings sharedSettings] addPhotoToRecentsWithURL:link andPhotoID:photo_id];
+//    [[RecentSettings sharedSettings] addPhotoToRecentsWithURL:link andPhotoID:photo_id andCount:[NSNumber numberWithInt:1]];
+//    [[RecentSettings sharedSettings] setCount:[NSNumber numberWithInt:1]];
+//    [[RecentSettings sharedSettings] setPhotoURL:link];
+//    [[RecentSettings sharedSettings] setPhotoID:photo_id];
 	return link;
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E55D5D1174F5C7C00E63C8A /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */; };
+		8EAE1A2B175357A800B9082D /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE1A2A175357A800B9082D /* Photo.m */; };
+		8EAE1A2E1753843A00B9082D /* RecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE1A2D1753843A00B9082D /* RecentViewController.m */; };
 		8EB88FB2174E0C7800E1CE2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB88FB1174E0C7800E1CE2B /* UIKit.framework */; };
 		8EB88FB4174E0C7800E1CE2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB88FB3174E0C7800E1CE2B /* Foundation.framework */; };
 		8EB88FB6174E0C7800E1CE2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB88FB5174E0C7800E1CE2B /* CoreGraphics.framework */; };
@@ -33,6 +35,10 @@
 /* Begin PBXFileReference section */
 		8E55D5CF174F5C7C00E63C8A /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		8EAE1A29175357A800B9082D /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		8EAE1A2A175357A800B9082D /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		8EAE1A2C1753843A00B9082D /* RecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentViewController.h; sourceTree = "<group>"; };
+		8EAE1A2D1753843A00B9082D /* RecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentViewController.m; sourceTree = "<group>"; };
 		8EB88FAE174E0C7800E1CE2B /* TopPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB88FB1174E0C7800E1CE2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8EB88FB3174E0C7800E1CE2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,12 +121,16 @@
 				8EB88FC0174E0C7800E1CE2B /* TopPlaceAppDelegate.h */,
 				8EB88FC1174E0C7800E1CE2B /* TopPlaceAppDelegate.m */,
 				8EB88FC9174E0C7800E1CE2B /* MainStoryboard_iPhone.storyboard */,
+				8EAE1A2C1753843A00B9082D /* RecentViewController.h */,
+				8EAE1A2D1753843A00B9082D /* RecentViewController.m */,
 				8E55D5CF174F5C7C00E63C8A /* PhotoViewController.h */,
 				8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */,
 				8EF4C77A174FAF5C00CB9FF7 /* RecentSettings.h */,
 				8EF4C77B174FAF5C00CB9FF7 /* RecentSettings.m */,
 				8EB88FE9174E492B00E1CE2B /* PhotoListViewController.h */,
 				8EB88FEA174E492C00E1CE2B /* PhotoListViewController.m */,
+				8EAE1A29175357A800B9082D /* Photo.h */,
+				8EAE1A2A175357A800B9082D /* Photo.m */,
 				8EB88FE6174E16B500E1CE2B /* TopPlaceViewController.h */,
 				8EB88FE7174E16B500E1CE2B /* TopPlaceViewController.m */,
 				8EB88FCC174E0C7800E1CE2B /* MainStoryboard_iPad.storyboard */,
@@ -229,6 +239,8 @@
 				8EB88FEB174E492C00E1CE2B /* PhotoListViewController.m in Sources */,
 				8E55D5D1174F5C7C00E63C8A /* PhotoViewController.m in Sources */,
 				8EF4C77C174FAF5C00CB9FF7 /* RecentSettings.m in Sources */,
+				8EAE1A2B175357A800B9082D /* Photo.m in Sources */,
+				8EAE1A2E1753843A00B9082D /* RecentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

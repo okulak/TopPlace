@@ -14,11 +14,16 @@ static RecentSettings* settings = nil;
 
 @property (strong, nonatomic) NSUserDefaults *defaults;
 @property (strong, nonatomic) NSMutableDictionary* defaultSettings;
+- (id)initWithPhotoID:(NSString *)photoID photoURL:(NSString *)photoURL count:(NSNumber *)count;
+
 
 @end
 
 
 @implementation RecentSettings
+@synthesize photoURL = _photoURL;
+@synthesize photoID = _photoID;
+@synthesize count = _count;
 
 + (RecentSettings*) sharedSettings
 {
@@ -32,14 +37,39 @@ static RecentSettings* settings = nil;
     return settings;
 }
 
-- (void) addPhotoToRecentsWithURL:(NSString*)URL andPhotoID:(id) photoID
+- (void) addPhotoToRecentsWithURL:(NSString*)URL andPhotoID:(id) photoID andCount:(NSNumber *)count
 {
-    NSURL *link = [NSURL URLWithString:URL];
-    [settings.defaultSettings setObject:link forKey:photoID];
-    NSString *key = [NSString stringWithFormat:@"Recents"];
-    [settings.defaults setObject:settings.defaultSettings forKey:key];
-    [settings.defaults synchronize];
+   
     
+    
+    NSDictionary *photoInfo = [NSDictionary new];
+    [photoInfo setValue:URL forKey:@"photoURL"];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    // создаем и кладем photoInfo в массив
+   
+    [array addObject:[settings initWithPhotoID:self.photoID photoURL:self.photoURL count:self.count]];
+   
+     // поля, по которым будет выполняться сортировка.
+    // они должны строго соответствовать переменным класса Student.
+    NSString *COUNT = @"count";
+  
+    
+    // создаем объекты класса NSSortDescriptor, которые будут использоваться для сортировки
+    NSSortDescriptor *countDescriptor = [[NSSortDescriptor alloc] initWithKey:COUNT ascending:YES
+                                                                    selector:@selector(localizedCaseInsensitiveCompare:)];
+        
+    // в данном случае сортировка будет вначале производиться по ФИО, а затем по факультету.
+    // если же дескрипторы поменять местами, то сначала отсортировано будет по факультету, а затем по ФИО.
+    NSArray *descriptors = [NSArray arrayWithObjects:countDescriptor, nil];
+    
+    // непостредственно сортируем массив, используя ранее созданные десктрипторы
+    NSArray *sortedArray = [array sortedArrayUsingDescriptors:descriptors];
+    // сейчас массив уже отсортирован
+   
+    
+    [settings.defaults synchronize];
+
 }
 
 

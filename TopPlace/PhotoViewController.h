@@ -10,5 +10,8 @@
 
 @interface PhotoViewController : UIViewController
 @property (nonatomic, strong) NSDictionary *photoInformaton;
+@property (nonatomic, strong) NSURL *photoURL;
+@property (nonatomic, strong) NSString *photoID;
+@property (nonatomic, strong) NSNumber *count;
 
 @end
