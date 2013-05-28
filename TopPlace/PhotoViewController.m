@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameOfPhoto;
 
 @end
 
@@ -22,20 +23,27 @@
 @synthesize scrollView;
 @synthesize imageView;
 @synthesize photoInformaton = _photoInformaton;
+@synthesize nameOfPhoto;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
     self.photoURL = [FlickrFetcher urlForPhoto:self.photoInformaton format: 2];
     [self loadImage:self.photoURL];//TODO::
     self.scrollView.delegate = self;
 	self.scrollView.contentSize = self.imageView.image.size;
     self.imageView.center = self.view.center;
-    self.photoInformaton = [[NSDictionary alloc]init];
     [self.view setBackgroundColor:[UIColor blackColor]];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSString *title = [NSString stringWithFormat:@"%@",[self.photoInformaton objectForKey:@"title"]];
+    self.nameOfPhoto.textColor = [UIColor greenColor];
+    self.nameOfPhoto.text =[NSString stringWithFormat:@"%@", title];
 }
 
 
@@ -54,8 +62,7 @@
         {
             NSLog(@"Error in image load %@", error.localizedDescription);
         }
-    }];
-    
+    }];    
 }
 
 -(void)showImage:(UIImage*)image

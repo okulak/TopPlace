@@ -30,8 +30,8 @@
     [super viewWillAppear:animated];
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     NSArray *recents = [settings objectForKey:@"photoInfo"];
-    NSString *COUNT = @"count";
-    NSSortDescriptor *countDescriptor = [[NSSortDescriptor alloc] initWithKey:COUNT ascending:NO];
+    NSString *count = @"count";
+    NSSortDescriptor *countDescriptor = [[NSSortDescriptor alloc] initWithKey:count ascending:NO];
     NSArray *descriptors = [NSArray arrayWithObjects:countDescriptor, nil];
     self.recents = [recents sortedArrayUsingDescriptors:descriptors];
 //    [self.tableView reloadData];
@@ -71,7 +71,7 @@
     NSString *content = [NSString stringWithFormat:@"%@",[description objectForKey:@"_content"]];    
     if (!content || [content isEqualToString:@""])
     {
-        cell.detailTextLabel.text = @"Unknow";
+        cell.detailTextLabel.text = @"Unknown";
     }
     else
     {
@@ -79,7 +79,7 @@
     }
     if (!title || [title isEqualToString:@""])
     {
-        cell.textLabel.text = @"Unknow";
+        cell.textLabel.text = @"Unknown";
     }
     else
     {

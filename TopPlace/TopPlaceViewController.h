@@ -11,4 +11,5 @@
 @interface TopPlaceViewController : UITableViewController
 @property (nonatomic, strong) NSMutableDictionary *photoID;
 @property (nonatomic, strong) NSArray *placeList;
+
 @end

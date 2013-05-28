@@ -114,6 +114,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="14r-Cf-5lb">
+                                        <rect key="frame" x="20" y="414" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -122,6 +129,7 @@
                     <navigationItem key="navigationItem" id="4Mg-dI-eOW"/>
                     <connections>
                         <outlet property="imageView" destination="ucs-NC-p5l" id="Cg0-mE-15z"/>
+                        <outlet property="nameOfPhoto" destination="14r-Cf-5lb" id="tg4-nf-gQN"/>
                         <outlet property="scrollView" destination="4yy-dm-e65" id="7D5-vv-864"/>
                     </connections>
                 </viewController>
@@ -190,7 +198,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Recents" image="second" id="bPQ-5I-AHT"/>
-                    <navigationItem key="navigationItem" id="T9q-Dc-mI3"/>
+                    <navigationItem key="navigationItem" title="Recents" id="T9q-Dc-mI3"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1123" y="537"/>
@@ -238,30 +246,12 @@
         <image name="first.png" width="30" height="30"/>
         <image name="second" width="16" height="16"/>
     </resources>
-    <classes>
-        <class className="PhotoListViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoListViewController.h"/>
-        </class>
-        <class className="PhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="RecentViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentViewController.h"/>
-        </class>
-        <class className="TopPlaceViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPlaceViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="u0n-Vg-Rp5"/>
+        <segue reference="nBu-7T-w1z"/>
     </inferredMetricsTieBreakers>
 </document>
