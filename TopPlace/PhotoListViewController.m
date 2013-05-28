@@ -20,6 +20,7 @@
 @synthesize photos = _photos;
 @synthesize keys = _keys;
 @synthesize place = _place;
+@synthesize count = _count;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -119,20 +120,20 @@
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     NSMutableArray* viewedPhotoes = [[settings objectForKey:@"photoInfo"] mutableCopy];
     if(viewedPhotoes == nil)
-        viewedPhotoes = [NSMutableArray new];
-
+    viewedPhotoes = [NSMutableArray new];
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    NSMutableDictionary* photo = self.photos[indexPath.row];
-    
+    NSMutableDictionary* photo = self.photos[indexPath.row];    
     NSNumber* count = [photo objectForKey:@"count"];
     count = [NSNumber numberWithInt:count.intValue+1];
     [photo setObject:count forKey:@"count"];
-    
-
     NSUInteger index = [viewedPhotoes indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
         NSString* objId = [obj objectForKey:@"id"];
         if([objId isEqualToString:[photo objectForKey:@"id"]])
+        {
+            self.count = [obj objectForKey:@"count"];
+            self.count = [NSNumber numberWithInt:self.count.intValue +1];
             return YES;
+        }
         else
             return NO;
     }];
@@ -140,12 +141,10 @@
     if(index!= NSNotFound)
     {
         NSMutableDictionary* obj = [viewedPhotoes[index] mutableCopy];
-        [obj setObject:count forKey:@"count"];
+        [obj setObject:self.count forKey:@"count"];
         viewedPhotoes[index] = obj;
     }
-    else
-       [viewedPhotoes addObject:photo];
-    
+    else [viewedPhotoes addObject:photo];    
     [settings setObject:viewedPhotoes forKey:@"photoInfo"];
     [settings synchronize];
 }
@@ -153,38 +152,10 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [self saveStatistic];
-    
+    [self saveStatistic];    
     PhotoViewController *fvc = (PhotoViewController*)segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    fvc.photoInformaton = [self.photos objectAtIndex:indexPath.row];
-    
-//    NSDictionary* photo = self.photos[indexPath.row];
-//    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-//    NSMutableArray* viewedPhotoes = ((NSMutableArray*)[settings objectForKey:@"photoInfo"]);
-//    NSMutableDictionary* viewedPhoto = [[viewedPhotoes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"id == %@", [photo objectForKey:@"id"]]].lastObject mutableCopy];
-//    if (viewedPhoto)
-//    {
-//       NSNumber* count = [viewedPhoto objectForKey:@"count"];
-//        [viewedPhoto setObject:[NSNumber numberWithInt:count.intValue+1] forKey:@"count"];
-//    }
-//    else
-//    {
-//         NSNumber* count = [photo objectForKey:@"count"];
-//        [self.photos[indexPath.row] setObject:[NSNumber numberWithInt:count.intValue+1] forKey:@"count"];
-//        if (!viewedPhotoes)
-//        {
-//            viewedPhotoes = [[NSMutableArray alloc] initWithObjects:photo, nil];
-//        }
-//        else
-//        {
-//        [viewedPhotoes addObject:photo];
-//        }
-//    }
-//    
-//    viewedPhotoes = [[viewedPhotoes filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"count > 0"]]mutableCopy];
-//    [settings setObject:viewedPhotoes forKey:@"photoInfo"];
-//    [settings synchronize];
+    fvc.photoInformaton = [self.photos objectAtIndex:indexPath.row];    
 }
 
 
