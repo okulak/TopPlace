@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameOfPhoto;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -46,6 +47,10 @@
     self.nameOfPhoto.text =[NSString stringWithFormat:@"%@", title];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    
+}
 
 
 -(void)loadImage:(NSURL*)imageUrl
@@ -67,6 +72,7 @@
 
 -(void)showImage:(UIImage*)image
 {
+    [self.spinner stopAnimating];
     self.imageView.image = image;
 }
 

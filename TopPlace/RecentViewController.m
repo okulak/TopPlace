@@ -33,8 +33,7 @@
     NSString *count = @"count";
     NSSortDescriptor *countDescriptor = [[NSSortDescriptor alloc] initWithKey:count ascending:NO];
     NSArray *descriptors = [NSArray arrayWithObjects:countDescriptor, nil];
-    self.recents = [recents sortedArrayUsingDescriptors:descriptors];
-//    [self.tableView reloadData];
+    self.recents = [recents sortedArrayUsingDescriptors:descriptors];    
 }
 
 
