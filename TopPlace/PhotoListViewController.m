@@ -12,6 +12,7 @@
 #import "Photo.h"
 
 @interface PhotoListViewController ()
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -34,7 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.tableView addSubview:self.spinner];
+    self.spinner.center = self.tableView.center;
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue setName:@"Data Processing Queue"];
     __weak PhotoListViewController *weakself = self;
@@ -49,16 +51,9 @@
             [data setObject:[NSNumber numberWithInt:0] forKey:@"count"];
             [photoDictionariesWithStatistic addObject:data];
         }
-        
-//        
-//        NSMutableArray* photos = [[NSMutableArray alloc]initWithCapacity:photoDictionaries.count];
-//        for (NSDictionary* photoDictionary in photoDictionaries)
-//        {
-//            [photos addObject:[[Photo alloc]initWithDictionary:photoDictionary]];
-//        }
-        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             weakself.photos = photoDictionariesWithStatistic;
+            [self.spinner stopAnimating];
             [weakself.tableView reloadData];
         }];
     }];    

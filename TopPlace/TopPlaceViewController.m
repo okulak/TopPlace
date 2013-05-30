@@ -11,6 +11,7 @@
 #import "PhotoListViewController.h"
 
 @interface TopPlaceViewController ()
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
 
@@ -31,6 +32,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView addSubview:self.spinner];
+    self.spinner.center = self.tableView.center;
     self.photoID = [NSMutableDictionary dictionary];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue setName:@"Data Processing Queue"];
@@ -39,6 +42,7 @@
         NSArray *placeList = [FlickrFetcher topPlaces];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             weakself.placeList = placeList;
+            [self.spinner stopAnimating];
             [weakself.tableView reloadData];
         }];
     }];
