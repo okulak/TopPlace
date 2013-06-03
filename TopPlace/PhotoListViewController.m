@@ -13,6 +13,8 @@
 
 @interface PhotoListViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) NSMutableDictionary *cellPhoto;
+@property (strong, nonatomic) NSOperationQueue* queue;
 
 @end
 
@@ -22,6 +24,9 @@
 @synthesize keys = _keys;
 @synthesize place = _place;
 @synthesize count = _count;
+@synthesize photoURL = _photoURL;
+@synthesize cellPhoto = _cellPhoto;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,12 +40,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.cellPhoto = [NSMutableDictionary new];
     [self.tableView addSubview:self.spinner];
     self.spinner.center = self.tableView.center;
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    [queue setName:@"Data Processing Queue"];
+    self.queue = [[NSOperationQueue alloc]init];
+    [self.queue setName:@"Data Processing Queue"];
     __weak PhotoListViewController *weakself = self;
-    [queue addOperationWithBlock:^{
+    [self.queue addOperationWithBlock:^{
         weakself.keys = [NSArray arrayWithObject:@"place_id"];
         weakself.place = [[NSDictionary alloc] initWithObjects:weakself.placeID forKeys:weakself.keys];
         NSArray *photoDictionaries = [FlickrFetcher photosInPlace: weakself.place maxResults:50];
@@ -81,8 +87,7 @@
 {
     static NSString *CellIdentifier = @"Photo list cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath]; 
-    
-    
+        
     NSDictionary *photoDictionary = [self.photos objectAtIndex:indexPath.row];
     
     NSString *title = [NSString stringWithFormat:@"%@",[photoDictionary objectForKey:@"title"]];
@@ -97,6 +102,7 @@
     {        
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",content];
     }
+    
     if (!title || [title isEqualToString:@""])
     {
         cell.textLabel.text = @"Unknow";        
@@ -105,10 +111,56 @@
     {
         cell.textLabel.text = [NSString stringWithFormat:@"%@",title];       
     }
+    
 
+    
+    if (![self.cellPhoto objectForKey:indexPath])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"default.jpg"];
+        self.photoURL = [FlickrFetcher urlForPhoto:photoDictionary format: FlickrPhotoFormatSquare];
+        [self loadImage:self.photoURL forIndex:indexPath];       
+    }
+    else
+    {
+        cell.imageView.image = [self.cellPhoto objectForKey:indexPath];
+    }
     
     return cell;
 }
+
+-(void)loadImage:(NSURL*)imageUrl forIndex:(NSIndexPath*)index
+{
+    
+    
+    NSURLRequest* request = [[NSURLRequest alloc]initWithURL:imageUrl];
+    __block UIImage*image = [[UIImage alloc]init];
+    [NSURLConnection sendAsynchronousRequest:request queue:self.queue completionHandler:^(NSURLResponse *response, NSData * data, NSError *error) {
+        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+        if(httpResponse.statusCode == 200)
+        {
+            image = [[UIImage alloc]initWithData:data];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.cellPhoto setObject:image forKey:index];
+                [self updateImage:image byIndex:index];
+            });
+        }
+        else
+        {
+            NSLog(@"Error in image load %@", error.localizedDescription);
+            
+        }
+    }];
+    
+}
+
+-(void)updateImage:(UIImage*)image byIndex:(NSIndexPath *)index
+{
+    NSArray *indexes = [self.tableView indexPathsForVisibleRows];
+    if([indexes containsObject:index]) // if our index is visible
+        [self.tableView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+
 
 -(void)saveStatistic
 {

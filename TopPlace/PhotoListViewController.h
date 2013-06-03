@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSArray *keys;
 @property (nonatomic, strong) NSDictionary *place;
 @property (nonatomic, strong) NSNumber *count;
+@property (nonatomic, strong) NSURL *photoURL;
 
 @end

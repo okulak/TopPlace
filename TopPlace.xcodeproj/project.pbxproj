@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E17C2FB175787380087E738 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E17C2FA175787380087E738 /* default.jpg */; };
 		8E55D5D1174F5C7C00E63C8A /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */; };
 		8EA8BBE8175612DE00D7722B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA8BBE7175612DE00D7722B /* MainStoryboard_iPhone.storyboard */; };
 		8EAE1A2B175357A800B9082D /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EAE1A2A175357A800B9082D /* Photo.m */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E17C2FA175787380087E738 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		8E55D5CF174F5C7C00E63C8A /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		8E55D5D0174F5C7C00E63C8A /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		8EA8BBE7175612DE00D7722B /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				8EB88FD4174E0C7800E1CE2B /* first@2x.png */,
 				8EB88FD9174E0C7800E1CE2B /* second.png */,
 				8EB88FDB174E0C7800E1CE2B /* second@2x.png */,
+				8E17C2FA175787380087E738 /* default.jpg */,
 				8EB88FB8174E0C7800E1CE2B /* Supporting Files */,
 			);
 			path = TopPlace;
@@ -221,6 +224,7 @@
 				8EB88FDA174E0C7800E1CE2B /* second.png in Resources */,
 				8EB88FDC174E0C7800E1CE2B /* second@2x.png in Resources */,
 				8EA8BBE8175612DE00D7722B /* MainStoryboard_iPhone.storyboard in Resources */,
+				8E17C2FB175787380087E738 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
