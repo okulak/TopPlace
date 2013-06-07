@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.photoURL = [FlickrFetcher urlForPhoto:self.photoInformaton format: 2];
+    self.photoURL = [FlickrFetcher urlForPhoto:self.photoInformaton format: FlickrPhotoFormatLarge];
     [self loadImage:self.photoURL];//TODO::
     self.scrollView.delegate = self;
 	self.scrollView.contentSize = self.imageView.image.size;

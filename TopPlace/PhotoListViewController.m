@@ -112,8 +112,6 @@
         cell.textLabel.text = [NSString stringWithFormat:@"%@",title];       
     }
     
-
-    
     if (![self.cellPhoto objectForKey:indexPath])
     {
         cell.imageView.image = [UIImage imageNamed:@"default.jpg"];
@@ -129,8 +127,7 @@
 }
 
 -(void)loadImage:(NSURL*)imageUrl forIndex:(NSIndexPath*)index
-{
-    
+{    
     
     NSURLRequest* request = [[NSURLRequest alloc]initWithURL:imageUrl];
     __block UIImage*image = [[UIImage alloc]init];

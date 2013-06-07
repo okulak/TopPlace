@@ -54,7 +54,7 @@
 	id server = [photo objectForKey:@"server"];
 	NSString *photo_id = [photo objectForKey:@"id"];
 	id secret = [photo objectForKey:@"secret"];
-	if (format == FlickrPhotoFormatOriginal) secret = [photo objectForKey:@"originalsecret"];
+	if (format == FlickrPhotoFormatOriginal && [photo objectForKey:@"originalsecret"]) secret = [photo objectForKey:@"originalsecret"];
     
 	NSString *fileType = @"jpg";
 	if (format == FlickrPhotoFormatOriginal) fileType = [photo objectForKey:@"originalformat"];
